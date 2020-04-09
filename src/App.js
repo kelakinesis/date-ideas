@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './tinypotato.png';
 import './App.css';
+import ThreeIdeasButton from './components/button.js';
 
 const dateIdeas = [
   'Go to Duke\'s Refresher',
@@ -84,6 +85,7 @@ function App() {
       {/* <button onClick={() => pickThreeNewIdeas}>Pick 3 new ideas</button> */}
       <h3>Full list of ideas:</h3>
       <ul>{dateIdeaList}</ul>
+      <ThreeIdeasButton />
     </div>
     </div>
   );
