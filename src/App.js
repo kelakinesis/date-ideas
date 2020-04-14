@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './tinypotato.png';
 import './App.css';
 import ThreeIdeasButton from './components/button.js';
 
@@ -73,9 +72,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-        <h1>I'm a tiny potato. You can do the thing.</h1>
-        <h2>"What do you wanna do?"</h2>
+        <h1>What do you wanna do?</h1>
       </header>
 
     <div className="App-body">
