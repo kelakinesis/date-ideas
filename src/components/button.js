@@ -1,17 +1,17 @@
-import {React, useState} from 'react';
+import React, { useState } from 'react';
 
 const dateIdeas = [
-    'Go to Duke\'s Refresher',
     'Watch a movie',
-    'Go to Soos',
-    'Get Bubble Tea',
-    'Go to Pai',
-    'Bake something gluten-free',
+    'Try a new wine',
+    'Make Bubble Tea',
+    'Bake cookies',
+    'Create a mini-putt course',
     'Create a cocktail',
-    'Take a coffee workshop',
-    'Try a new fitness class',
+    'Take an online coffee workshop',
+    'Try an online fitness class',
     'Netflix and Chill'
   ]
+]
 
 
 //https://reactjs.org/docs/hooks-state.html 
