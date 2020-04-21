@@ -10,34 +10,32 @@ const dateIdeas = [
     'Take an online coffee workshop',
     'Try an online fitness class',
     'Netflix and Chill'
-  ]
-]
+];
 
 
-//https://reactjs.org/docs/hooks-state.html 
+// https://reactjs.org/docs/hooks-state.html 
 
+let randomIdea = '';
 
 function ThreeIdeasButton() {
-    const [show, setShow] = useState(false); //react hook
+    const [count, setCount] = useState(0); //react hook
 
     function handleClick() {
-        alert('hello!');
-        setShow(true);
+        randomIdea = dateIdeas[Math.floor(Math.random() * (dateIdeas.length))];
+        setCount(count + 1);
     }
 
     return (
         <div>
-            <button onClick={handleClick}>Give me 3 options pizzaa</button>
-            { show ? (
-                <div>
-                3 date ideas
-            </div>
+            <button onClick={handleClick}>Give me a random date idea</button>
+            { count > 0 ? (
+                <p>{randomIdea}</p>
             ) : (
-                <div>Please click button </div>
+                <p>☝️ click the button</p>
             )}
         </div>
         
-    )
-}
+    );
+};
 
 export default ThreeIdeasButton;

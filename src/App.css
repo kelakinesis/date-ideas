@@ -6,9 +6,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #FEF5EF;
-  color: #584B53;
+  background-color: #156054;
+  color: #F8E16C;
 }
+
+/* https://coolors.co/156054-00c49a-f8e16c-ffc2b4-fb8f67 */
 
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {

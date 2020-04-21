@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <div className="App-body">
-        <h3>Three random date ideas:</h3>
         <ThreeIdeasButton />
       </div>
     </div>
