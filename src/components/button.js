@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+// future: use firebase instead of the below hard-coded list
 const dateIdeas = [
     'Watch a movie',
     'Try a new wine',
@@ -18,18 +20,37 @@ const dateIdeas = [
 let randomIdea = '';
 
 function ThreeIdeasButton() {
-    const [count, setCount] = useState(0); //react hook
+    // const [count, setCount] = useState(0); //react hook
+    const [selectedIdeas, setSelectedIdeas] = useState([]);
+
+    // generate 3 unique indexes to pass to selectedIdeas - this is to replace the below
+    // Math.floor(Math.random() * (dateIdeas.length))
+    function generateUniqueIds () {
+        // generate a number
+        // add to a list
+        // check if new number exists in the new list
+    }
 
     function handleClick() {
-        randomIdea = dateIdeas[Math.floor(Math.random() * (dateIdeas.length))];
-        setCount(count + 1);
+        // randomIdea = dateIdeas[Math.floor(Math.random() * (dateIdeas.length))];
+        let ideas = [
+            dateIdeas[Math.floor(Math.random() * (dateIdeas.length))],
+            dateIdeas[Math.floor(Math.random() * (dateIdeas.length))],
+            dateIdeas[Math.floor(Math.random() * (dateIdeas.length))],
+        ]
+        setSelectedIdeas(ideas);
+        // setCount(count + 1);
     }
 
     return (
         <div>
             <button onClick={handleClick}>Give me a random date idea</button>
-            { count > 0 ? (
-                <p>{randomIdea}</p>
+            { selectedIdeas.length > 0 ? (
+                <div>
+                    <p>{selectedIdeas[0]}</p>
+                    <p>{selectedIdeas[1]}</p>
+                    <p>{selectedIdeas[2]}</p>
+                </div>
             ) : (
                 <p>☝️ click the button</p>
             )}
