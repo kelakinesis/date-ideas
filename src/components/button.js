@@ -18,6 +18,7 @@ const dateIdeas = [
 // https://reactjs.org/docs/hooks-state.html 
 
 let randomIdea = '';
+let randomIndex = [];
 
 function ThreeIdeasButton() {
     // const [count, setCount] = useState(0); //react hook
@@ -29,7 +30,9 @@ function ThreeIdeasButton() {
         // generate a number
         // add to a list
         // check if new number exists in the new list
-    }
+
+        
+    };
 
     function handleClick() {
         // randomIdea = dateIdeas[Math.floor(Math.random() * (dateIdeas.length))];
@@ -37,10 +40,12 @@ function ThreeIdeasButton() {
             dateIdeas[Math.floor(Math.random() * (dateIdeas.length))],
             dateIdeas[Math.floor(Math.random() * (dateIdeas.length))],
             dateIdeas[Math.floor(Math.random() * (dateIdeas.length))],
-        ]
+        ];
         setSelectedIdeas(ideas);
         // setCount(count + 1);
-    }
+
+        generateUniqueIds();
+    };
 
     return (
         <div>
