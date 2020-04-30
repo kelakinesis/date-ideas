@@ -15,7 +15,6 @@ const dateIdeas = [
     'Learn to code together',
     'Play a board game',
     '100 squats challenge',
-    '50 push ups challenge',
 ];
 
 
@@ -26,15 +25,15 @@ function ThreeIdeasButton() {
 
     function handleClick() {
 
-        while (uniqueIndexes.length < 3) {
+        while (uniqueIndexes.length < 4) {
             randomIndexes = randomIndexes.map(index => Math.floor(Math.random() * (dateIdeas.length)));
-            uniqueIndexes = new Set(randomIndexes);
+            uniqueIndexes = randomIndexes.filter((n, i) => randomIndexes.indexOf(n) === i);
         };
         
         let ideas = [
-            dateIdeas[randomIndexes[0]],
-            dateIdeas[randomIndexes[1]],
-            dateIdeas[randomIndexes[2]],
+            dateIdeas[uniqueIndexes[0]],
+            dateIdeas[uniqueIndexes[1]],
+            dateIdeas[uniqueIndexes[2]],
         ];
 
         setSelectedIdeas(ideas);
