@@ -5,54 +5,51 @@ import React, { useState } from 'react';
 const dateIdeas = [
     'Watch a movie',
     'Try a new wine',
-    'Make Bubble Tea',
+    'Make bubble tea',
     'Bake cookies',
     'Create a mini-putt course',
     'Create a cocktail',
     'Take an online coffee workshop',
     'Try an online fitness class',
-    'Netflix and Chill'
+    'Netflix and Chill',
+    'Learn to code together',
+    'Play a board game',
+    '100 squats challenge',
 ];
 
 
-// https://reactjs.org/docs/hooks-state.html 
-
-let randomIdea = '';
-
 function ThreeIdeasButton() {
-    // const [count, setCount] = useState(0); //react hook
     const [selectedIdeas, setSelectedIdeas] = useState([]);
+    let randomIndexes = Array(3).fill(0);
 
-    // generate 3 unique indexes to pass to selectedIdeas - this is to replace the below
-    // Math.floor(Math.random() * (dateIdeas.length))
-    function generateUniqueIds () {
-        // generate a number
-        // add to a list
-        // check if new number exists in the new list
-    }
+    function getThreeUniqueIdeas() {
+        let uniqueIndexes = [];
 
-    function handleClick() {
-        // randomIdea = dateIdeas[Math.floor(Math.random() * (dateIdeas.length))];
+        while (uniqueIndexes.length < 3) {
+            randomIndexes = randomIndexes.map(index => Math.floor(Math.random() * (dateIdeas.length)));
+            uniqueIndexes = randomIndexes.filter((n, i) => randomIndexes.indexOf(n) === i);
+        };
+        
         let ideas = [
-            dateIdeas[Math.floor(Math.random() * (dateIdeas.length))],
-            dateIdeas[Math.floor(Math.random() * (dateIdeas.length))],
-            dateIdeas[Math.floor(Math.random() * (dateIdeas.length))],
-        ]
+            dateIdeas[randomIndexes[0]],
+            dateIdeas[randomIndexes[1]],
+            dateIdeas[randomIndexes[2]],
+        ];
+
         setSelectedIdeas(ideas);
-        // setCount(count + 1);
-    }
+    };
 
     return (
         <div>
-            <button onClick={handleClick}>Give me a random date idea</button>
+            <button className="button-home" onClick={getThreeUniqueIdeas}>Give me a random date idea</button>
             { selectedIdeas.length > 0 ? (
-                <div>
-                    <p>{selectedIdeas[0]}</p>
-                    <p>{selectedIdeas[1]}</p>
-                    <p>{selectedIdeas[2]}</p>
-                </div>
+                <ul>
+                    <li>{selectedIdeas[0]}</li>
+                    <li>{selectedIdeas[1]}</li>
+                    <li>{selectedIdeas[2]}</li>
+                </ul>
             ) : (
-                <p>☝️ click the button</p>
+                <p><span role="img" aria-label="point-up">☝️</span> click the button</p>
             )}
         </div>
         

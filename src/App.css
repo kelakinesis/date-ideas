@@ -10,14 +10,6 @@
   color: #F8E16C;
 }
 
-/* https://coolors.co/156054-00c49a-f8e16c-ffc2b4-fb8f67 */
-
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
 .App-header {
   font-size: calc(10px + 2vmin);
 }
@@ -34,11 +26,21 @@
   text-align: left;
 }
 
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.button-home {
+  font-family: inherit;
+  font-size: inherit;
+  color: #FFF;
+  background: #70c1b3;
+  padding: 25px 80px;
+  display: inline-block;
+  margin: 15px 30px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.button-home:hover {
+  color:#156054;
+  background-color:#F8E16C;
+}
