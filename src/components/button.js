@@ -21,28 +21,27 @@ const dateIdeas = [
 function ThreeIdeasButton() {
     const [selectedIdeas, setSelectedIdeas] = useState([]);
     let randomIndexes = Array(3).fill(0);
-    let uniqueIndexes = [];
 
-    function handleClick() {
+    function getThreeUniqueIdeas() {
+        let uniqueIndexes = [];
 
-        while (uniqueIndexes.length < 4) {
+        while (uniqueIndexes.length < 3) {
             randomIndexes = randomIndexes.map(index => Math.floor(Math.random() * (dateIdeas.length)));
             uniqueIndexes = randomIndexes.filter((n, i) => randomIndexes.indexOf(n) === i);
         };
         
         let ideas = [
-            dateIdeas[uniqueIndexes[0]],
-            dateIdeas[uniqueIndexes[1]],
-            dateIdeas[uniqueIndexes[2]],
+            dateIdeas[randomIndexes[0]],
+            dateIdeas[randomIndexes[1]],
+            dateIdeas[randomIndexes[2]],
         ];
 
         setSelectedIdeas(ideas);
-
     };
 
     return (
         <div>
-            <button onClick={handleClick}>Give me a random date idea</button>
+            <button onClick={getThreeUniqueIdeas}>Give me a random date idea</button>
             { selectedIdeas.length > 0 ? (
                 <ul>
                     <li>{selectedIdeas[0]}</li>
