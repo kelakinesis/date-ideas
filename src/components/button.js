@@ -18,30 +18,25 @@ const dateIdeas = [
     '50 push ups challenge',
 ];
 
-let randomIndex = Array(3).fill(0);
 
 function ThreeIdeasButton() {
     const [selectedIdeas, setSelectedIdeas] = useState([]);
-
-    // generate 3 unique indexes to pass to selectedIdeas - this is to replace the below
-    // Math.floor(Math.random() * (dateIdeas.length))
-    function generateUniqueIds () {
-        // generate 3 random numbers restricted to the length of the dateIdeas array
-        // check if any of the numbers are equal to one another
-        // if any are equal to one another, generate another 3 random numbers
-        randomIndex = randomIndex.map(index => Math.floor(Math.random() * (dateIdeas.length)));
-        console.log(randomIndex);
-    };
+    let randomIndexes = Array(3).fill(0);
+    let uniqueIndexes = [];
 
     function handleClick() {
 
-        generateUniqueIds();
+        while (uniqueIndexes.length < 3) {
+            randomIndexes = randomIndexes.map(index => Math.floor(Math.random() * (dateIdeas.length)));
+            uniqueIndexes = new Set(randomIndexes);
+        };
         
         let ideas = [
-            dateIdeas[randomIndex[0]],
-            dateIdeas[randomIndex[1]],
-            dateIdeas[randomIndex[2]],
+            dateIdeas[randomIndexes[0]],
+            dateIdeas[randomIndexes[1]],
+            dateIdeas[randomIndexes[2]],
         ];
+
         setSelectedIdeas(ideas);
 
     };
@@ -50,11 +45,11 @@ function ThreeIdeasButton() {
         <div>
             <button onClick={handleClick}>Give me a random date idea</button>
             { selectedIdeas.length > 0 ? (
-                <div>
-                    <p>{selectedIdeas[0]}</p>
-                    <p>{selectedIdeas[1]}</p>
-                    <p>{selectedIdeas[2]}</p>
-                </div>
+                <ul>
+                    <li>{selectedIdeas[0]}</li>
+                    <li>{selectedIdeas[1]}</li>
+                    <li>{selectedIdeas[2]}</li>
+                </ul>
             ) : (
                 <p><span role="img" aria-label="point-up">☝️</span> click the button</p>
             )}
