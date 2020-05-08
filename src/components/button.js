@@ -41,7 +41,7 @@ function ThreeIdeasButton() {
 
     return (
         <div>
-            <button className="button-home" onClick={getThreeUniqueIdeas}>Give me a random date idea</button>
+            <button className="button-home" onClick={getThreeUniqueIdeas}>Give me some ideas</button>
             { selectedIdeas.length > 0 ? (
                 <ul>
                     <li>{selectedIdeas[0]}</li>
@@ -52,7 +52,6 @@ function ThreeIdeasButton() {
                 <p><span role="img" aria-label="point-up">☝️</span> click the button</p>
             )}
         </div>
-        
     );
 };
 
